@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: PaperToMath
-slug: papertomath
+title: Algorithm
+slug: algorithm
 category: dev
 menu: false
-order: 3
+order: 9
 ---

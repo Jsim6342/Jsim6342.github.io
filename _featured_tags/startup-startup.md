@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Startup
-slug: startup
-category: startup
+title: Stock
+slug: stock
+category: stock
 menu: false
 order: 1
 ---

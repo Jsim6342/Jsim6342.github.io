@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: ML
-slug: ml
+title: Server
+slug: server
 category: dev
 menu: false
-order: 1
+order: 5
 ---

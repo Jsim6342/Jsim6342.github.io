@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Unclassified
-slug: unclassified
-category: unclassified
+title: Book
+slug: book
+category: book
 menu: false
 order: 1
 ---

@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: DB
-slug: db
+title: HTML/CSS
+slug: html/css
 category: dev
 menu: false
-order: 2
+order: 7
 ---

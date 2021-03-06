@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Statistics & R
-slug: r
+title: Git
+slug: git
 category: dev
 menu: false
-order: 1
+order: 6
 ---

@@ -4,5 +4,5 @@ title: Python
 slug: python
 category: dev
 menu: false
-order: 8
+order: 5
 ---

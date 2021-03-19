@@ -4,5 +4,5 @@ title: Java
 slug: java
 category: dev
 menu: false
-order: 1
+order: 3
 ---

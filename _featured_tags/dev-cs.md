@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Server
-slug: server
+title: CS
+slug: cs
 category: dev
 menu: false
-order: 5
+order: 1
 ---

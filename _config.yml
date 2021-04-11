@@ -18,7 +18,7 @@ tagline:             "백엔드를 꿈꾸는 개발자"
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  백엔드 개발자
+  웹 개발자
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
@@ -51,7 +51,7 @@ disqus: True
 disqus_shortname:    Jsim6342
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2019.04. by theorydb'
+copyright:           '&copy; 2021.03. by Jsim'
 
 # Format of the permalinks
 permalink:           pretty

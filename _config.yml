@@ -13,12 +13,12 @@ url:                 https://Jsim6342.github.io
 baseurl:             ""
 
 # A very short description of your page
-tagline:             "백엔드를 꿈꾸는 개발자"
+tagline:             "웹 개발자를 꿈꾸는 개발자"
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  웹 개발자
+      웹 개발자 진행중
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:

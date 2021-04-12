@@ -46,13 +46,13 @@ comments: true
 * __내가 자주 사용하는 노션 설정__  
   - __테마 설정__  
   노션에 접속 후, 가장 먼저 추천하는 설정은 `테마 설정`이다. '다크 모드'와 '라이트 모드'를 선택할 수 있는데, '다크 모드'를 추천한다. 눈에 피로가 덜할 뿐더러 좀 더 고급스러운 느낌이다. (이 부분은 취향이다.)
-  <img src="https://jsim6342.github.io/asset/img/anything/2021/04/11/anything-how-to-use-notion-picture1.png" width="800" height="500">
+  <img src="https://jsim6342.github.io/asset/img/anything/2021-04-11-anything-how-to-use-notion-picture1.png" width="800" height="500">
   > 설정 방법
     노션의 왼쪽 창에 `설정과 멤버`에 들어간다. -> 설정과 멤버 창 왼쪽 편에 `테마`를 클릭한다. -> 모드를 선택한다.
 
   - __글자 스타일, 창 너비 설정__  
   노션 페이지 내의 전체 너비와 글자 크기와 스타일을 설정할 수 있다. 페이지에 따라 설정할 수 있으며, 내용을 많이 담아야하는 페이지에는 전체 너비와 글자 크기를 줄여주는 것이 좋다.
-  <img src="https://jsim6342.github.io/asset/img/anything/2021/04/11/anything-how-to-use-notion-picture2.png" width="800" height="500">
+  <img src="https://jsim6342.github.io/asset/img/anything/2021/04/11/anything-how-to-use-notion-picture2.PNG" width="800" height="500">
   > 설정 방법
     노션의 오른쪽 상단에 ... 클릭 -> `스타일, 작은 텍스트, 전체 너비` 설정
 

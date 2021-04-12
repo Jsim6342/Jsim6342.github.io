@@ -46,13 +46,13 @@ comments: true
 * __내가 자주 사용하는 노션 설정__  
   - __테마 설정__  
   노션에 접속 후, 가장 먼저 추천하는 설정은 `테마 설정`이다. '다크 모드'와 '라이트 모드'를 선택할 수 있는데, '다크 모드'를 추천한다. 눈에 피로가 덜할 뿐더러 좀 더 고급스러운 느낌이다. (이 부분은 취향이다.)
-  <img src="https://jsim6342.github.io/asset/img/anything/2021-04-11-anything-how-to-use-notion-picture1.png" width="800" height="500">
+  <img src="https://jsim6342.github.io/assets/img/anything/2021-04-11-anything-how-to-use-notion-picture1.png" width="800" height="500">
   > 설정 방법
     노션의 왼쪽 창에 `설정과 멤버`에 들어간다. -> 설정과 멤버 창 왼쪽 편에 `테마`를 클릭한다. -> 모드를 선택한다.
 
   - __글자 스타일, 창 너비 설정__  
   노션 페이지 내의 전체 너비와 글자 크기와 스타일을 설정할 수 있다. 페이지에 따라 설정할 수 있으며, 내용을 많이 담아야하는 페이지에는 전체 너비와 글자 크기를 줄여주는 것이 좋다.
-  <img src="https://jsim6342.github.io/asset/img/anything/2021/04/11/anything-how-to-use-notion-picture2.PNG" width="800" height="500">
+  <img src="https://jsim6342.github.io/assets/img/anything/2021-04-11-anything-how-to-use-notion-picture2.PNG" width="800" height="500">
   > 설정 방법
     노션의 오른쪽 상단에 ... 클릭 -> `스타일, 작은 텍스트, 전체 너비` 설정
 
@@ -67,15 +67,15 @@ comments: true
 누구나 간단하게 노션을 활용해 볼 수 있도록 일정을 관리하는 페이지 하나를 만들어보고자 한다. 처음 노션을 접하는 분들이라면, 한 번쯤 따라하면서 노션을 익혀보는 것도 좋을듯하다.
 
   - __새 페이지 생성__  
-  <img src="https://jsim6342.github.io/asset/img/anything/2021/04/11/anything-how-to-use-notion-picture3.png" width="800" height="500">
+  <img src="https://jsim6342.github.io/assets/img/anything/2021-04-11-anything-how-to-use-notion-picture3.png" width="800" height="500">
   노션 페이지 왼쪽 하단에 `새 페이지` 버튼을 눌러 새 페이지를 생성해준다. 그러면, 작은 창에 제목과 페이지를 어떻게 채울 것인지 선택하는 요소들이 나온다. 우리는 페이지 제목을 입력하고, `빈 페이지, 아이콘 사용`을 눌러준다. 그러면 새 페이지가 생성되면서 간단한 아이콘과 함께 페이지 제목이 출력된다.
   - __페이지 꾸미기__  
-  <img src="https://jsim6342.github.io/asset/img/anything/2021/04/11/anything-how-to-use-notion-picture4.png" width="800" height="500">
+  <img src="https://jsim6342.github.io/assets/img/anything/2021-04-11-anything-how-to-use-notion-picture4.png" width="800" height="500">
   먼저, `아이콘을 클릭`하여 제목과 어울리는 아이콘으로 바꿔준다. 아이콘은 기본적으로 제공해주는 아이콘과 직접 이미지를 업로드하거나 링크를 걸어 사용할 수 있다. 이후, `커버 추가`를 눌러주면 랜덤으로 페이지 위에 사진이 추가된다. 사진에 마우스를 대면 나타나는 `커버 변경`을 클릭하여 페이지 제목과 어울리는 사진으로 바꿔주고, `위치 변경`을 통해 적절하게 사진이 보여지는 위치를 설정한다.
   - __페이지 틀 잡기__  
-  <img src="https://jsim6342.github.io/asset/img/anything/2021/04/11/anything-how-to-use-notion-picture5.png" width="800" height="500">
+  <img src="https://jsim6342.github.io/assets/img/anything/2021-04-11-anything-how-to-use-notion-picture5.png" width="800" height="500">
   앞서 언급한 `노션 기본`에서 노션이 블록으로 구성된다는 점을 활용하면 쉽게 페이지 틀을 잡을 수 있다. 페이지 본문에서 아무 글이나 작성하고 엔터를 치면 블록 하나가 만들어진다. 블록에 마우스를 대면, 왼쪽에 + 기호와 .(점)6개로 구성된 기호가 보인다. 점 6개 기호를 꾹 눌러 드래그하면 블록을 자유롭게 움직일 수 있다. 이를 활용하여 블록 오른쪽에 블록을 붙여보자.
   그럼 가로로 블록이 구분되어 진다. 이를 활용하여 내용을 구분하여 메모할 수 있다.
   - __타임라인 넣기__  
-  <img src="https://jsim6342.github.io/asset/img/anything/2021/04/11/anything-how-to-use-notion-picture6.png" width="800" height="500">
+  <img src="https://jsim6342.github.io/asset/img/anything/2021-04-11-anything-how-to-use-notion-picture6.png" width="800" height="500">
   `노션 기본`에서 언급한 `/`를 이용하면 타임라인 블록을 이용할 수 있다. '/'를 입력 후, `타임라인-인라인`을 클릭하여 타임라인을 넣을 수 있다. 타임라인을 통해 기간 별로 해야되는 일정을 시각적으로 볼 수 있으며, 각 일정 마다 하위 페이지가 연동되어 있어 구체적인 일정 메모가 가능하다.

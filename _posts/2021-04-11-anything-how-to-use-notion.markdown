@@ -46,7 +46,9 @@ comments: true
 * __내가 자주 사용하는 노션 설정__  
   - __테마 설정__  
   노션에 접속 후, 가장 먼저 추천하는 설정은 `테마 설정`이다. '다크 모드'와 '라이트 모드'를 선택할 수 있는데, '다크 모드'를 추천한다. 눈에 피로가 덜할 뿐더러 좀 더 고급스러운 느낌이다. (이 부분은 취향이다.)
-  <img src="https://jsim6342.github.io/assets/img/anything/2021-04-11-anything-how-to-use-notion-picture1.PNG" width="800" height="500">
+  <img src="https://jsim6342.github.io/assets/img/anything/2021-04-11-anything-how-to-use-notion-picture1.PNG" width="800" height="500">  
+  <img src="https://jsim6342.github.io/assets/img/anything/2021-04-11-anything-how-to-use-notion-picture1.PNG" width="600" height="400">  
+  ![이미지1](https://jsim6342.github.io/assets/img/anything/2021-04-11-anything-how-to-use-notion-picture1.PNG)
   > 설정 방법
     노션의 왼쪽 창에 `설정과 멤버`에 들어간다. -> 설정과 멤버 창 왼쪽 편에 `테마`를 클릭한다. -> 모드를 선택한다.
 
@@ -77,5 +79,5 @@ comments: true
   앞서 언급한 `노션 기본`에서 노션이 블록으로 구성된다는 점을 활용하면 쉽게 페이지 틀을 잡을 수 있다. 페이지 본문에서 아무 글이나 작성하고 엔터를 치면 블록 하나가 만들어진다. 블록에 마우스를 대면, 왼쪽에 + 기호와 .(점)6개로 구성된 기호가 보인다. 점 6개 기호를 꾹 눌러 드래그하면 블록을 자유롭게 움직일 수 있다. 이를 활용하여 블록 오른쪽에 블록을 붙여보자.
   그럼 가로로 블록이 구분되어 진다. 이를 활용하여 내용을 구분하여 메모할 수 있다.
   - __타임라인 넣기__  
-  <img src="https://jsim6342.github.io/asset/img/anything/2021-04-11-anything-how-to-use-notion-picture6.PNG" width="800" height="500">
+  <img src="https://jsim6342.github.io/assets/img/anything/2021-04-11-anything-how-to-use-notion-picture6.PNG" width="800" height="500">
   `노션 기본`에서 언급한 `/`를 이용하면 타임라인 블록을 이용할 수 있다. '/'를 입력 후, `타임라인-인라인`을 클릭하여 타임라인을 넣을 수 있다. 타임라인을 통해 기간 별로 해야되는 일정을 시각적으로 볼 수 있으며, 각 일정 마다 하위 페이지가 연동되어 있어 구체적인 일정 메모가 가능하다.

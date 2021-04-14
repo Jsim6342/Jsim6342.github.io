@@ -26,9 +26,9 @@ comments: false
 > LIFO: 마지막에 넣은 데이터를 가장 먼저 꺼낸다.  
 > FILO: 먼저 넣은 데이터를 가장 마지막에 꺼낸다. 
 
- - __스택의 주요 기능__  
- push: 데이터를 스택에 넣기  
- pop: 데이터를 스택에서 꺼내기
+  - __스택의 주요 기능__  
+  push: 데이터를 스택에 넣기  
+  pop: 데이터를 스택에서 꺼내기
 ![이미지1](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-14-dev-algorithm-stack-picture1.png)
 
 
@@ -36,7 +36,7 @@ comments: false
 ---
 
 *__스택 구현해보기__    
-python에서는 기존의 list가 곧 스택의 기능을 수행한다고 볼 수 있다. 따라서, python의 list를 사용하여 스택을 구현할 수 있다.
+Python에서는 기존의 list가 곧 스택의 기능을 수행한다고 볼 수 있다. 따라서, Python의 list를 사용하여 스택을 구현할 수 있다.
 ```python
 list_stack = list() #스택 자료구조 생성
 

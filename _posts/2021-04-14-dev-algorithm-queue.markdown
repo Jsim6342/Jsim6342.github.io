@@ -40,7 +40,7 @@ published: true
 큐에는 다양한 종류들이 있다. Python의 queue 라이브러리는 이러한 다양한 큐들을 제공해주고 있다. 각 큐에 대해 간단하게 알아보자.
  - __Queue__  
   가장 일반적인 큐 자료구조로 `FIFO(First-In,First-Out)`방식으로 진행된다.  
-  ```python
+  ```python  
   import queue
 
   list_queue = queue.Queue() #큐 자료구조 생성
@@ -50,7 +50,7 @@ published: true
   ```
  - __LifoQueue__  
   나중에 입력된 데이터가 먼저 출력되는 구조로 `LIFO(Last-In,First-Out)`방식으로 진행된다.(스택 구조)  
-  ```python
+  ```python  
   import queue
 
   list_queue = queue.LifoQueue() #큐 자료구조 생성
@@ -60,7 +60,7 @@ published: true
   ```
  - __PriorityQueue__  
   데이터마다 우선순위가 있고, 우선순위가 높은 순서로 데이터가 출력되는 형식이다. 여기서 우선순위가 높다는 것은 우선순   위의 값이 작다는 것을 의미한다.  
-  ```python
+  ```python  
   import queue
 
   list_queue = queue.PriorityQueue() #큐 자료구조 생성
@@ -75,7 +75,7 @@ published: true
 
 *__큐 구현해보기__  
 python에서는 기존의 list를 활용하여 간단하게 큐를 구현해 볼 수 있다.
-```Python
+```Python  
 list_queue = list()
 
 def enqueue(data):

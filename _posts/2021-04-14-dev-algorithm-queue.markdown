@@ -14,7 +14,7 @@ published: true
 - 목차
 	- [큐(queue)란?](#큐(queue)란?) 
 	- [큐 종류](#큐-종류?)
-    - [큐 구현](#큐-구현)
+  - [큐 구현](#큐-구현)
 
 ## 큐(queue)란?
 ---
@@ -54,6 +54,7 @@ published: true
 
 * __큐 구현해보기__  
 python에서는 기존의 list를 활용하여 간단하게 큐를 구현해 볼 수 있다.
+
 ```Python  
 list_queue = list()
 

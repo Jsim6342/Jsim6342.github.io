@@ -37,6 +37,7 @@ comments: false
 
 * __스택 구현해보기__    
 Python에서는 기존의 list가 곧 스택의 기능을 수행한다고 볼 수 있다. 따라서, Python의 list를 사용하여 스택을 구현할 수 있다.
+
 ```python
 list_stack = list() #스택 자료구조 생성
 

@@ -19,10 +19,10 @@ comments: false
 ## 트리(Tree)란?
 ---
 
-*__트리(Tree)__  
+* __트리(Tree)__  
 자료구조 트리는 자료구조 그래프의 하위 범위로 `노드(Node)`와 `브랜치(Branch)`를 이용해서, 사이클을 이루지 않도록 구성한 데이터 구조이다.
 
-*__트리 기본 구조, 용어__  
+* __트리 기본 구조, 용어__  
 ![이미지1](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-18-dev-algorithm-tree-picture1.png) 
  - __트리 용어__  
  Node: 트리에서 데이터를 저장하는 기본 요소로 데이터와 연결된 노드의 브랜치 정보 포함  
@@ -38,10 +38,12 @@ comments: false
 ## 이진 탐색 트리(Binary Search Tree)란?
 ---
 자료 구조 트리는 특히 이진 트리 형태로 탐색 알고리즘 구현에 많이 활용된다.  
-> 이진 트리: 노드의 최대 브랜치가 2인 트리
-*__이진 탐색 트리란?__  
-이진 탐색 트리(BST)는 왼쪽 노드는 해당 노드보다 작은 값, 오른쪽 노드는 해당 노드보다 큰 값을 가지게 유지한 이진 트리 구조이다.
-*__이진 탐색 트리의 장단점__  
+> 이진 트리: 노드의 최대 브랜치가 2인 트리  
+
+* __이진 탐색 트리란?__  
+이진 탐색 트리(BST)는 왼쪽 노드는 해당 노드보다 작은 값, 오른쪽 노드는 해당 노드보다 큰 값을 가지게 유지한 이진 트리 구조이다.  
+
+* __이진 탐색 트리의 장단점__  
  - 장점: 탐색 속도를 개선할 수 있어 `데이터 검색`에 효율적이다.  
  - 단점: 이진 탐색 트리를 유지시켜줘야 하며, 삭제 메서드가 비교적 복잡하다.
 
@@ -52,7 +54,7 @@ comments: false
 삭제 기능을 구현했을 때 발생할 수 있는 여러 상황을 간략하게 요약, 필기해보았다. 더하여 상황에 맞게 어떻게 코드를 구현해야할지 구현 방향에 대해서도 노란색으로 필기해보았다.
 ![이미지2](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-18-dev-algorithm-tree-picture2.jpg) 
 
-*__Leaf Node삭제__  
+* __Leaf Node삭제__  
 삭제할 노드의 부모 노드가 삭제할 노드를 가리키지 않도록 한다.(None을 가리키도록 한다.)
 ```python
 if  self.current_node.left == None and self.current_node.right == None: # 삭제할 노드의 오른쪽, 왼쪽 자식이 없는 경우
@@ -62,7 +64,7 @@ if  self.current_node.left == None and self.current_node.right == None: # 삭제
         self.parent.right = None # 부모 노드의 오른쪽 자식 값을 None으로 변경
     del self.current_node # 삭제할 노드를 메모리에서 삭제
 ```  
-*__자식 노드가 1개인 노드 삭제__  
+* __자식 노드가 1개인 노드 삭제__  
 삭제할 노드의 부모 노드가 삭제할 노드의 자식 노드를 가리키도록 한다.
 ```python
 if self.current_node.left != None and self.current_node.right == None: # 삭제할 노드의 왼쪽 자식이 있는 경우
@@ -76,10 +78,11 @@ elif self.current_node.left == None and self.current_node.right != None: # 삭�
     else: # 삭제할 값이 부모 노드 보다 크다면,
         self.parent.right = self.current_node.right # 부모 노드의 오른쪽 값을 삭제할 노드의 오른쪽 자식으로 변경
 ```  
-*__자식 노드가 2개인 노드 삭제__  
+* __자식 노드가 2개인 노드 삭제__  
 자식 노드가 2개인 노드를 삭제하는 경우, 다음과 같은 2가지 방법이 있다. 두 방법 중에서 하나를 선택하여 구현한다. 아래의 구현 코드는 1번 방법을 선택하여 구현한 코드이다.
 > 1. 삭제할 노드의 오른쪽 자식 중에서 가장 작은 값을 삭제할 노드의 부모 노드가 가리키게함  
 > 2. 삭제할 노드의 왼쪽 자식 중에서 가장 큰 값을 삭제할 노드의 부모 노드가 가리키게함  
+
 ```python
 # 삭제할 노드가 부모 노드의 왼쪽에 있을 때,
 if self.current_node.left != None and self.current_node.right != None: # case3: 삭제할 노드가 2개의 자식이 있는 경우
@@ -113,7 +116,7 @@ else: # 만약 삭제할 노드의 값이 부모 노드 보다 크다면(부모 
     self.change_node.left = self.current_node.left # 넣은 최소값 오른쪽, 왼쪽을 본래 삭제지점이 갖고 있었던 오른쪽, 왼쪽 노드로 연결
     self.change_node.right = self.current_node.right
 ```  
-*__이진 탐색 트리 구현__  
+* __이진 탐색 트리 구현__  
 위의 삭제 기능을 기반으로한 이진 탐색 트리를 구현한 코드이다.
 ```python
 class Node:

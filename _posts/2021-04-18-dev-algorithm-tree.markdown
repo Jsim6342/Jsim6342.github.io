@@ -24,15 +24,15 @@ comments: false
 
 * __트리 기본 구조, 용어__  
 ![이미지1](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-18-dev-algorithm-tree-picture1.png) 
- - __트리 용어__  
- Node: 트리에서 데이터를 저장하는 기본 요소로 데이터와 연결된 노드의 브랜치 정보 포함  
- Root Node: 트리 맨 위에 있는 노드  
- Level: 최상위 노드를 Level 0으로 했을 때, 하위 브랜치로 연결된 노드의 깊이  
- Parent Node: 부모 노드 (어떤 노드가 파생된 바로위 상위 레벨 노드)  
- Child Node: 자식 노드 (어떤 노드로 부터 파생된 바로 하위 레벨 노드)  
- Leaf Node(Terminal Node): Child Node가 하나도 없는 노드  
- Sibling (Brother Node): 동일한 Parent Node를 가진 노드  
- Depth: 트리에서 Node가 가질 수 있는 최대 Level  
+  - __트리 용어__  
+  Node: 트리에서 데이터를 저장하는 기본 요소로 데이터와 연결된 노드의 브랜치 정보 포함  
+  Root Node: 트리 맨 위에 있는 노드  
+  Level: 최상위 노드를 Level 0으로 했을 때, 하위 브랜치로 연결된 노드의 깊이  
+  Parent Node: 부모 노드 (어떤 노드가 파생된 바로위 상위 레벨 노드)  
+  Child Node: 자식 노드 (어떤 노드로 부터 파생된 바로 하위 레벨 노드)  
+  Leaf Node(Terminal Node): Child Node가 하나도 없는 노드  
+  Sibling (Brother Node): 동일한 Parent Node를 가진 노드  
+  Depth: 트리에서 Node가 가질 수 있는 최대 Level  
 
 
 ## 이진 탐색 트리(Binary Search Tree)란?
@@ -44,8 +44,8 @@ comments: false
 이진 탐색 트리(BST)는 왼쪽 노드는 해당 노드보다 작은 값, 오른쪽 노드는 해당 노드보다 큰 값을 가지게 유지한 이진 트리 구조이다.  
 
 * __이진 탐색 트리의 장단점__  
- - 장점: 탐색 속도를 개선할 수 있어 `데이터 검색`에 효율적이다.  
- - 단점: 이진 탐색 트리를 유지시켜줘야 하며, 삭제 메서드가 비교적 복잡하다.
+  - 장점: 탐색 속도를 개선할 수 있어 `데이터 검색`에 효율적이다.  
+  - 단점: 이진 탐색 트리를 유지시켜줘야 하며, 삭제 메서드가 비교적 복잡하다.
 
 
 ## 이진 탐색 트리 구현
@@ -55,7 +55,7 @@ comments: false
 ![이미지2](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-18-dev-algorithm-tree-picture2.jpg) 
 
 * __Leaf Node삭제__  
-삭제할 노드의 부모 노드가 삭제할 노드를 가리키지 않도록 한다.(None을 가리키도록 한다.)
+삭제할 노드의 부모 노드가 삭제할 노드를 가리키지 않도록 한다.(None을 가리키도록 한다.)  
 ```python
 if  self.current_node.left == None and self.current_node.right == None: # 삭제할 노드의 오른쪽, 왼쪽 자식이 없는 경우
     if value < self.parent.value: # 삭제할 값이 부모 노드보다 작을 경우,
@@ -66,7 +66,7 @@ if  self.current_node.left == None and self.current_node.right == None: # 삭제
 ```  
 
 * __자식 노드가 1개인 노드 삭제__  
-삭제할 노드의 부모 노드가 삭제할 노드의 자식 노드를 가리키도록 한다.
+삭제할 노드의 부모 노드가 삭제할 노드의 자식 노드를 가리키도록 한다.  
 ```python
 if self.current_node.left != None and self.current_node.right == None: # 삭제할 노드의 왼쪽 자식이 있는 경우
     if value < self.parent.value: # 삭제할 값이 부모 노드 보다 작다면, 
@@ -81,7 +81,7 @@ elif self.current_node.left == None and self.current_node.right != None: # 삭�
 ```  
 
 * __자식 노드가 2개인 노드 삭제__  
-자식 노드가 2개인 노드를 삭제하는 경우, 다음과 같은 2가지 방법이 있다. 두 방법 중에서 하나를 선택하여 구현한다. 아래의 구현 코드는 1번 방법을 선택하여 구현한 코드이다.
+자식 노드가 2개인 노드를 삭제하는 경우, 다음과 같은 2가지 방법이 있다. 두 방법 중에서 하나를 선택하여 구현한다. 아래의 구현 코드는 1번 방법을 선택하여 구현한 코드이다.  
 > 1. 삭제할 노드의 오른쪽 자식 중에서 가장 작은 값을 삭제할 노드의 부모 노드가 가리키게함  
 > 2. 삭제할 노드의 왼쪽 자식 중에서 가장 큰 값을 삭제할 노드의 부모 노드가 가리키게함  
 
@@ -120,7 +120,7 @@ else: # 만약 삭제할 노드의 값이 부모 노드 보다 크다면(부모 
 ```  
 
 * __이진 탐색 트리 구현__  
-위의 삭제 기능을 기반으로한 이진 탐색 트리를 구현한 코드이다.
+위의 삭제 기능을 기반으로한 이진 탐색 트리를 구현한 코드이다.  
 ```python
 class Node:
     def __init__(self, value):
@@ -230,7 +230,7 @@ class NodeMgmt:
                 self.change_node.left = self.current_node.left
 
         return True
-```
+```  
 
 
 ## 이진 탐색 트리 시간 복잡도

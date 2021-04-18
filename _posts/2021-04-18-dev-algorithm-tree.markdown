@@ -64,6 +64,7 @@ if  self.current_node.left == None and self.current_node.right == None: # 삭제
         self.parent.right = None # 부모 노드의 오른쪽 자식 값을 None으로 변경
     del self.current_node # 삭제할 노드를 메모리에서 삭제
 ```  
+
 * __자식 노드가 1개인 노드 삭제__  
 삭제할 노드의 부모 노드가 삭제할 노드의 자식 노드를 가리키도록 한다.
 ```python
@@ -78,6 +79,7 @@ elif self.current_node.left == None and self.current_node.right != None: # 삭�
     else: # 삭제할 값이 부모 노드 보다 크다면,
         self.parent.right = self.current_node.right # 부모 노드의 오른쪽 값을 삭제할 노드의 오른쪽 자식으로 변경
 ```  
+
 * __자식 노드가 2개인 노드 삭제__  
 자식 노드가 2개인 노드를 삭제하는 경우, 다음과 같은 2가지 방법이 있다. 두 방법 중에서 하나를 선택하여 구현한다. 아래의 구현 코드는 1번 방법을 선택하여 구현한 코드이다.
 > 1. 삭제할 노드의 오른쪽 자식 중에서 가장 작은 값을 삭제할 노드의 부모 노드가 가리키게함  
@@ -116,6 +118,7 @@ else: # 만약 삭제할 노드의 값이 부모 노드 보다 크다면(부모 
     self.change_node.left = self.current_node.left # 넣은 최소값 오른쪽, 왼쪽을 본래 삭제지점이 갖고 있었던 오른쪽, 왼쪽 노드로 연결
     self.change_node.right = self.current_node.right
 ```  
+
 * __이진 탐색 트리 구현__  
 위의 삭제 기능을 기반으로한 이진 탐색 트리를 구현한 코드이다.
 ```python
@@ -228,6 +231,7 @@ class NodeMgmt:
 
         return True
 ```
+
 
 ## 이진 탐색 트리 시간 복잡도
 ---

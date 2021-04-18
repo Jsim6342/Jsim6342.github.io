@@ -51,7 +51,7 @@ comments: false
 ---
 
 *__해시 함수__  
-대표적으로 잘 알려진 해시 함수에는 `SHA-1`과 `SHA-256`이 있다.
+대표적으로 잘 알려진 안전한 해시 함수에는 `SHA` 함수가 있다.
 
 ```python
 import hashlib
@@ -161,7 +161,7 @@ def hash_function(key):
 def save_data(data, value):
     index_key = get_key(data)
     hash_address = hash_function(index_key)
-    
+
     if hash_table[hash_address] != 0: # 충돌이 발생하면,
         for index in range(hash_address, len(hash_table)): # 충돌 지점 부터 탐색
             if hash_table[index] == 0: # 빈 저장소를 발견하면,

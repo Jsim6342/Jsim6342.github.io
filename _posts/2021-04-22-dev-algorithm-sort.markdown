@@ -4,7 +4,8 @@ title:  "[알고리즘] 정렬(Sort) 알고리즘"
 subtitle:   "정렬 알고리즘 정리"
 categories: dev
 tags: Sort
-comments: false
+use_math: true
+comments: true
 ---
 
 ## 개요

@@ -34,7 +34,8 @@ comments: False
 
 * __크루스칼 알고리즘(Kruskal’s algorithm)이란?__  
 최소값을 갖는 간선을 우선으로 하여 최소 신장 트리가 되도록 연결한다. 이 때, 사이클이 생기지 않게 연결한다. 간선을 오름차순으로 정렬하여 가장 낮은 비용의 간선 부터 사이클이 생기지 않는 간선만 채택하는 원리로 `그리디 알고리즘`을 기반으로 한다.
-> 과정 요약: 간선 최소값 정렬 → 사이클 여부 확인(Find함수. path compression기법) → 두 조건을 만족하면, 연결(Union함수. union by rank기법)
+> 과정 요약: 간선 최소값 정렬 → 사이클 여부 확인(Find함수. path compression기법) → 두 조건을 만족하면, 연결(Union함수. union by rank기법)  
+
 ![이미지1](https://jsim6342.github.io/assets/img/dev/algorithm/2021-05-02-dev-algorithm-mst-picture1.png)
 
 * __Union  & Find__  
@@ -58,7 +59,8 @@ comments: False
 ![이미지3](https://jsim6342.github.io/assets/img/dev/algorithm/2021-05-02-dev-algorithm-mst-picture3.png)  
 
 * __크루스칼 알고리즘 구현__  
-```python
+
+```python  
 parent = dict() # 부모 노드 값 저장
 rank = dict() # 노드의 랭크 값 저장
 
@@ -126,6 +128,7 @@ def kruskal(graph): # 사전을 인자로 받음
 > 4. 간선 후보 리스트에서 최소 가중치를 갖는 간선 부터 추출해서, 해당 간선이 연결된 노드 리스트에 들어 있다면, 스킵(사이클 방지). 들어 있지 않으면, 해당 간선을 선택하고 해당 간선 정보를 최소 신장 트리에 삽입  
 > 5. 추출한 간선은 간선 리스트에서 제거  
 > 6. 간선 리스트에 더 이상의 간선이 없을 때까지 4~5번을 반복한다.  
+
 ![이미지4](https://jsim6342.github.io/assets/img/dev/algorithm/2021-05-02-dev-algorithm-mst-picture4.png)  
 ![이미지5](https://jsim6342.github.io/assets/img/dev/algorithm/2021-05-02-dev-algorithm-mst-picture5.png)  
 ![이미지6](https://jsim6342.github.io/assets/img/dev/algorithm/2021-05-02-dev-algorithm-mst-picture6.png)  
@@ -134,7 +137,8 @@ def kruskal(graph): # 사전을 인자로 받음
 * __프림 알고리즘 구현__  
 사이클이 생기지 않게하기 위해, 연결하려는 다음 노드가 이미 연결된 리스트 내에 존재하는지 확인하는 작업을 거쳤다.
 어떤 노드로 부터 파생된 인접 노드 사이의 최소 간선을 구하는 과정을 최소 힙으로 구현하였다.  
-```python
+
+```python  
 from collections import defaultdict
 from heapq import *
 

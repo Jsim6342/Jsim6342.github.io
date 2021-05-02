@@ -12,12 +12,12 @@ comments: False
 > `정렬 알고리즘`에 대한 정리글입니다.
 
 - 목차
-	- [정렬(Sort)이란?](#정렬(Sort)이란?) 
-    - [버블 정렬(bubble sort)](#버블-정렬(bubble-sort))
-    - [삽입 정렬(insertion sort)](#삽입-정렬(insertion-sort))
-    - [선택 정렬(selection sort)](#선택-정렬(selection-sort))
-    - [병합 정렬(merge sort)](#병합-정렬(merge-sort))
-    - [퀵 정렬(quick sort)](#퀵-정렬(quick-sort))
+	- [정렬(Sort)이란?](#정렬sort이란) 
+    - [버블 정렬(bubble sort)](#버블-정렬bubble-sort)
+    - [삽입 정렬(insertion sort)](#삽입-정렬insertion-sort)
+    - [선택 정렬(selection sort)](#선택-정렬selection-sort)
+    - [병합 정렬(merge sort)](#병합-정렬merge-sort)
+    - [퀵 정렬(quick sort)](#퀵-정렬quick-sort)
 
 
 ## 정렬(Sort)이란?

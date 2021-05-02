@@ -11,8 +11,8 @@ comments: false
 > 자료구조 `트리(Tree)`에 대한 정리글입니다.
 
 - 목차
-	- [트리(Tree)란?](#트리(Tree)란?) 
-    - [이진 탐색 트리(Binary Search Tree)란?](#이진-탐색-트리(Binary-Search-Tree)란?)
+	- [트리(Tree)란?](#트리tree란) 
+    - [이진 탐색 트리(Binary Search Tree)란?](#이진-탐색-트리binary-search-tree란)
     - [이진 탐색 트리 구현](#이진-탐색-트리-구현)
     - [이진 탐색 트리 시간 복잡도](#이진-탐색-트리-시간-복잡도)
 

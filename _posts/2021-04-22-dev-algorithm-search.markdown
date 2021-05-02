@@ -11,8 +11,8 @@ comments: false
 >  `순차 탐색`, `이진 탐색` 알고리즘에 대한 정리글입니다.
 
 - 목차
-    - [순차 탐색(Sequential Search)](#순차-탐색(Sequential-Search))
-    - [이진 탐색(Binary Search)](#이진-탐색(Binary-Search))
+    - [순차 탐색(Sequential Search)](#순차-탐색sequential-search)
+    - [이진 탐색(Binary Search)](#이진-탐색binary-search)
 
 
 ## 순차 탐색(Sequential Search)

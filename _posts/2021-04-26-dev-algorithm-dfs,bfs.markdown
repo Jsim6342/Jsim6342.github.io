@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[알고리즘] 그래프 탐색 알고리즘"
+title:  "[알고리즘] 그래프 탐색 알고리즘(DFS,BFS)"
 subtitle:   "그래프 탐색 알고리즘 정리"
 categories: dev
 tags: DFS,BFS
@@ -13,9 +13,9 @@ comments: False
 
 - 목차
 	- [그래프 탐색](#그래프-탐색) 
-    - [DFS,BFS 구현](#DFS,BFS-구현)
-    - [DFS와 BFS의 시간 복잡도](#DFS와-BFS의-시간-복잡도)
-    - [DFS와 BFS를 활용한 문제 풀이](#DFS와-BFS를-활용한-문제-풀이)
+    - [DFS와 BFS 구현](#dfs와-bfs-구현)
+    - [DFS와 BFS의 시간 복잡도](#dfs와-bfs의-시간-복잡도)
+    - [DFS와 BFS를 활용한 문제 풀이](#dfs와-bfs를-활용한-문제-풀이)
 
 
 ## 그래프 탐색

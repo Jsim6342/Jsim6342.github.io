@@ -3,7 +3,7 @@ layout: post
 title:  "[자료구조] 그래프(Graph)"
 subtitle:   "자료구조 그래프 정리"
 categories: dev
-tags: Graph
+tags: algorithm graph
 comments: false
 ---
 

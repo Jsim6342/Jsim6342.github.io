@@ -3,7 +3,7 @@ layout: post
 title:  "[알고리즘] 정렬(Sort) 알고리즘"
 subtitle:   "정렬 알고리즘 정리"
 categories: dev
-tags: Sort
+tags: algorithm sort
 use_math: False
 comments: False
 ---

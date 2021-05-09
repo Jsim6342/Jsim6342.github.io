@@ -3,7 +3,7 @@ layout: post
 title:  "[알고리즘] 그래프 탐색 알고리즘(DFS,BFS)"
 subtitle:   "그래프 탐색 알고리즘 정리"
 categories: dev
-tags: DFS,BFS
+tags: algorithm dfs,bfs
 use_math: False
 comments: False
 ---

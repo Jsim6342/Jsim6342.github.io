@@ -3,7 +3,7 @@ layout: post
 title:  "[알고리즘] 최소 신장 트리(MST, Minimum Spanning Tree)"
 subtitle:   "최소 신장 트리 알고리즘 정리"
 categories: dev
-tags: mst
+tags: algorithm mst
 use_math: False
 comments: False
 ---

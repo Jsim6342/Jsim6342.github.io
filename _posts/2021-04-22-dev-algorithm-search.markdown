@@ -3,7 +3,7 @@ layout: post
 title:  "[알고리즘] 순차 탐색, 이진 탐색"
 subtitle:    알고리즘 순차 탐색, 이진 탐색 정리"
 categories: dev
-tags: Search
+tags: algorithm search
 comments: false
 ---
 

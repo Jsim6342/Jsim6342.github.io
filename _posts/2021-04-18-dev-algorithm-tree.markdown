@@ -3,7 +3,7 @@ layout: post
 title:  "[자료구조] 트리(Tree)"
 subtitle:   "자료구조 트리 정리"
 categories: dev
-tags: Tree
+tags: algorithm tree
 comments: false
 ---
 

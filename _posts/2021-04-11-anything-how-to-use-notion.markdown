@@ -3,7 +3,7 @@ layout: post
 title:  "[팁] 간단하게 노션(Notion) 사용해보기"
 subtitle:   "나만의 노션(Notion) 사용방법"
 categories: anything
-tags: Notion
+tags: anything notion
 comments: false
 ---
 

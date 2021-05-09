@@ -3,7 +3,7 @@ layout: post
 title:  "[자료구조] 해시 테이블(hash table)"
 subtitle:   "자료구조 해시 테이블 정리"
 categories: dev
-tags: hash table
+tags: algorithm hash table
 comments: false
 ---
 

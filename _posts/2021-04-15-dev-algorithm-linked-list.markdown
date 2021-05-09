@@ -3,7 +3,7 @@ layout: post
 title:  "[자료구조] 연결 리스트(linked list)"
 subtitle:   "자료구조 연결 리스트 정리"
 categories: dev
-tags: linked list
+tags: algorithm linked list
 comments: false
 ---
 

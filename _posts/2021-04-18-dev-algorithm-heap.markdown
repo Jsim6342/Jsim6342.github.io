@@ -3,7 +3,7 @@ layout: post
 title:  "[자료구조] 힙(Heap)"
 subtitle:   "자료구조 힙 정리"
 categories: dev
-tags: Heap
+tags: algorithm heap
 comments: false
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title:  "[자료구조] 스택(stack)"
 subtitle:   "자료구조 스택 정리"
 categories: dev
-tags: stack
+tags: algorithm stack
 comments: false
 ---
 

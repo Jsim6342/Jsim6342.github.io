@@ -3,7 +3,7 @@ layout: post
 title: '[자료구조] 큐(queue)'
 subtitle: 자료구조 큐 정리
 categories: dev
-tags: queue
+tags: algorithm queue
 comments: false
 published: true
 ---

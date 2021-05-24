@@ -47,8 +47,9 @@ comments: false
 
 * __Python 스택 활용 방법__  
 스택을 언제 사용해야 하는지 알았다면, 이제 어떻게 스택을 사용하는지 알아야한다.  
-Python에서 스택을 구현하는 방법은 그냥 list를 쓰면된다.(아주 간단하다.)  
+Python에서 스택을 구현하는 방법은 그냥 `list`를 쓰면된다.(아주 간단하다.)  
 list가 제공하는 append() 함수는 맨 마지막 index에 원소를 삽입하고, pop() 함수는 맨 마지막 index의 원소를 꺼내고 return한다. 즉, append()로 가장 나중에 들어온 데이터를 pop()으로 가장 먼저 처리할 수 있다.   
+
 ```python
 stack = list() #스택 자료구조 생성
 
@@ -60,5 +61,5 @@ stack.pop() #가장 나중에 넣은 데이터를 반환. 여기서는 2 반환.
 
 
 ## 참고
-</br>
+
 <https://ooeunz.tistory.com/7>

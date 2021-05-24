@@ -75,6 +75,7 @@ published: true
 Python에서 큐를 구현하는 방법은 collections 모듈의 deque와 Queue 모듈의 Queue 클래스가 있다.  
 Queue 모듈은 multi-consumer queue를 제공하여 threaded programming에 자주 사용된다. 그러나 deque에 비해 속도가 느리고, 알고리즘에 필요한 일반적인 함수는 deque가 모두 제공하므로 알고리즘 풀이에는 deque를 주로 사용한다고 보면 된다.  
 즉, Python에서 큐는 `collections 모듈의 deque`를 통해 쉽게 구현할 수 있다.
+
 ```Python  
 from collections import deque
 
@@ -87,6 +88,6 @@ q.append(x) # 맨 뒤 index에 원소 추가
 
 
 ## 참고
-</br>
+
 <https://velog.io/@iacid123/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-Queue%ED%81%90>
 

@@ -14,18 +14,21 @@ published: true
 - 목차
 	- [큐(queue)란?](#큐queue란) 
 	- [큐 종류](#큐-종류)
-  - [큐 구현](#큐-구현)
+  - [Python에서 큐 활용하기](#python에서-큐-활용하기)
 
 ## 큐(queue)란?
 ---
 
 * __큐(queue)__  
-자료구조 중 하나로 가장 먼저 넣은 데이터를 가장 먼저 꺼내는 구조.  
-> 큐(queue)를 쉽게 말하자면, '선입선출', 줄을 서는 것  
+자료구조 중 하나로 가장 먼저 넣은 데이터를 가장 먼저 꺼내는 구조이다.
+인기 있는 식당을 가기 위해 대기줄을 서는 경우를 생각해보자. 식당 입장에서 수용 인원 보다 더 많은 사람들이 식당으로 몰려드는 상황이다. 이 때, 식당이 넘쳐나는 손님들을 관리하는 방법이 바로 이 `큐 자료구조를 이용한 대기줄`이라고 볼 수 있다.  
+먼저 온 사람이 맨 앞 대기줄에 서게되고, 가장 먼저 식당으로 들어가는 구조이다.~~(누군가 새치기를 하는 경우는 예외로 하자)~~  
+> 큐(queue)를 쉽게 말하자면, 줄을 서는 행위와 동일하게 작동한다고 볼 수 있다.
 ![이미지1](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-14-dev-algorithm-queue-picture1.png)
 
 * __큐의 구조__  
 큐의 구조는 가장 먼저 넣은 데이터를 가장 먼저 꺼낼 수 있는 구조로 되어 있다.
+
   - __큐의 주요 기능__  
   Enqueue: 큐에 데이터를 넣는 기능  
   Dequeue: 큐에서 데이터를 꺼내는 기능
@@ -40,29 +43,50 @@ published: true
 큐에는 다양한 종류들이 있다. Python의 queue 라이브러리는 이러한 다양한 큐들을 제공해주고 있다. 각 큐에 대해 간단하게 알아보자.
   - __Queue__  
   가장 일반적인 큐 자료구조로 `FIFO(First-In,First-Out)`방식으로 진행된다.  
-![이미지3](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-14-dev-algorithm-queue-picture3.PNG)  
+
   - __LifoQueue__  
   나중에 입력된 데이터가 먼저 출력되는 구조로 `LIFO(Last-In,First-Out)`방식으로 진행된다.(스택 구조)  
-![이미지4](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-14-dev-algorithm-queue-picture4.PNG)  
+
   - __PriorityQueue__  
   데이터마다 우선순위가 있고, 우선순위가 높은 순서로 데이터가 출력되는 형식이다. 여기서 우선순위가 높다는 것은 우선순위의 값이 작다는 것을 의미한다.  
-![이미지5](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-14-dev-algorithm-queue-picture5.PNG)  
 
 
-## 큐 구현
+
+## Python에서 큐 활용하기
 ---
 
-* __큐 구현해보기__  
-python에서는 기존의 list를 활용하여 간단하게 큐를 구현해 볼 수 있다.
+* __큐를 쓰는 경우__  
+어떤 데이터를 들어온 순서대로 처리하고 싶을 때 큐를 사용한다.  
+그럼 여기서 "데이터를 순서대로 처리하는거라면, 반복문으로도 충분히 가능할텐데... 왜 굳이 큐를 사용해야하지?"라는 의문이 들 수 있다.  
+큐의 핵심은 바로 자료구조라는 것이다. 즉, 데이터를 순서대로 처리함과 동시에 다시 처리한 데이터를 큐 자료구조에 넣어 어떠한 조건이 달성될 때까지 일정한 순서를 유지하면서 데이터를 반복적으로 처리할 수 있는 것이다.
+> 가령, 4명의 사람의 에너지가 담긴 list [1, 2, 3, 4]가 있고, 보초를 스면 에너지가 1씩 감소되는 상황이다. 보초를 1번씩 돌아가면서 서야할 때, N번 째로 보초를 서는 사람을 구하시오. 라는 알고리즘 문제가 있다고 생각해보자.  
+> 이 문제를 반복문으로 순차적으로 접근하며 푼다고 생각하면 머리가 복잡해진다..  
+> 하지만! 큐 자료구조를 이용한다면, 맨 앞 index를 pop하고 -1 처리를 해주며, 다시 자료구조의 맨 뒤에 넣어주면 된다.(0인 경우는 제외)  
+> 이런식으로 자료구조를 적절하게 활용하면 실생활의 문제를 보다 간편하게 풀 수 있다.
+</br>
+그 외에도 큐를 사용하는 경우는 시간 복잡도 측면에서도 고려해볼 수 있다.
+일반적인 list의 경우, 맨 앞에 원소를 pop하게되면 index를 한 칸씩 앞으로 이동하는 작업에 의해서 O(N)의 시간 복잡도가 발생한다.  
+하지만 큐를 이용한다면, 시간 복잡도 단 O(1)만에 앞의 원소를 꺼낼 수 있다.  
+따라서, 시간 복잡도를 고려한 코드를 작성할 때 큐를 활용할 수 있다.
 
+
+* __Python 큐 활용 방법__  
+그렇다면, 큐의 필요성은 어느 정도 알았겠다. 이제 어떻게 큐를 사용하는지 알아야한다.  
+Python에서 큐를 구현하는 방법은 collections 모듈의 deque와 Queue 모듈의 Queue 클래스가 있다.  
+Queue 모듈은 multi-consumer queue를 제공하여 threaded programming에 자주 사용된다. 그러나 deque에 비해 속도가 느리고, 알고리즘에 필요한 일반적인 함수는 deque가 모두 제공하므로 알고리즘 풀이에는 deque를 주로 사용한다고 보면 된다.  
+즉, Python에서 큐는 `collections 모듈의 deque`를 통해 쉽게 구현할 수 있다.
 ```Python  
-list_queue = list()
+from collections import deque
 
-def enqueue(data):
-  list_queue.append(data)
+q = deque([1, 2, 3]) # 큐 생성
+q.popleft() # 가장 앞 원소를 꺼내며 return
+q.append(x) # 맨 뒤 index에 원소 추가
 
-def dequeue():
-  data = list_queue[0]
-  del list_queue[0]
-  return data
 ```
+
+
+
+## 참고
+</br>
+<https://velog.io/@iacid123/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-Queue%ED%81%90>
+

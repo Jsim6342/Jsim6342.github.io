@@ -13,9 +13,9 @@ comments: false
 - 목차
 	- [해시 테이블(hash table)이란?](#해시-테이블hash-table이란) 
     - [해시 테이블 장단점](#해시-테이블-장단점)
-    - [해시 테이블 구현](#해시-테이블-구현)
     - [해시 테이블 충돌](#해시-테이블-충돌)
     - [시간 복잡도](#시간-복잡도)
+    - [Python 해시 테이블 활용](#python-해시-테이블-활용)
 
 ## 해시 테이블(hash table)이란?
 ---
@@ -47,151 +47,65 @@ comments: false
   - 해싱 함수로 배정된 해시 주소가 동일할 경우 충돌이 일어난다. (충돌 해결을 위한 대안이 필요)
 
 
-## 해시 테이블 구현
+## 해시 테이블 구현과 충돌
 ---
-
-* __해시 함수__  
-대표적으로 잘 알려진 안전한 해시 함수에는 `SHA` 함수가 있다.
-
-```python
-import hashlib
-
-# SHA-1
-data = 'test'.encode() # string형태는 byte형태로 인코딩 해줘야 해시함수를 추출할 수 있다.
-hash_object = hashlib.sha1() # hashlib에 있는 sha1을 사용
-hash_object.update(data) # 인코딩한 데이터를 넣어서 해시 값으로 만들어준다.
-hex_dig = hash_object.hexdigest() # hexdigest(): 16진수로 추출
-
-# SHA-256
-data = 'test'.encode()
-hash_object = hashlib.sha256()
-hash_object.update(data)
-hex_dig = hash_object.hexdigest()
-```
-
-* __해시 테이블 구현__  
-파이썬으로 간단하게 해시 테이블을 구현해보자. 크기가 8인 해시 테이블을 만들어 보았다. 여기서 hash_function() 뿐만 아니라 get_key()함수를 만들어 데이터를 hash()함수로 가공시키는 작업을 따로 빼주었다. 이는 차후에 hash()함수 외에 SHA-256 함수로 대체할 수 있으며, 해시 테이블의 충돌 방지에 key와 value를 저장하는 작업에서 암호화된 key를 변수로 저장할 수 있다. (hash_function만 만들게 되면, 기존의 data와 해시 값만 있기 때문에 암호화된 정보로 key를 저장할 수 없다.)
-
-```python
-#해시테이블 공간 생성
-hash_table = list([0 for i in range(8)])
-
-#key 생성
-#hash() 함수를 사용하여 고유값 반환
-def get_key(data):
-    return hash(data)
-
-#해시 함수
-#나눗셈 법을 이용한 해시 함수를 만들어 고정된 길이 반환
-def hash_function(key):
-    return key % 8
-
-#해시 함수 저장
-def save_data(data, value):
-    hash_address = hash_function(get_key(data))
-    hash_table[hash_address] = value
-    
-#해시 함수 출력
-def read_data(data):
-    hash_address = hash_function(get_key(data))
-    return hash_table[hash_address]
-```
-
-## 해시 테이블 충돌
----
-동일한 해시 주소에 다른 데이터가 저장될 경우 충돌이 발생하게 된다. 해시 테이블의 충돌을 방지하는 방법으로 다음과 같이 대표적인 2가지 방법이 있다.
+해시 테이블은 간단하게 해시 함수를 활용하여 구현할 수 있다. 데이터를 받아 각 데이터 마다 해시 함수를 활용하여 key를 설정하고, 해당 key 값에 적절하게 데이터를 저장하는 원리이다. 
+하지만 여기서 고려해야할 점이 있다. 동일한 해시 주소에 다른 데이터가 저장될 경우 충돌이 발생하게 된다는 점이다. 저장해야할 데이터가 해시 테이블의 크기에 비해서 너무 많거나, 해시 함수에 따라 배정된 key가 중복된 상황이 발생한다면, 같은 주소에 데이터가 저장되는 `충돌 상황`이 발생한다.  
+따라서, 충돌 상황을 피하기 위해서 기본적으로 해시 함수를 잘 설정해야하며, 데이터를 저장할 테이블의 크기를 적절하게 만들어줘야할 필요성이 있다.  
+아무리 해시 함수를 잘 작성하고, 테이블의 크기를 조절한다고 해도 완벽하게 충돌을 피할 수 많은 없을 것이다. 그래서 해시 테이블의 충돌을 방지하는 방법으로 다음과 같이 대표적인 2가지 방법이 있다.  
 
 * __Chaining기법__  
 해시 테이블 저장공간 외의 공간을 활용하는 기법이다. 충돌이 일어나면, `링크드 리스트를 활용`하여 링크드 리스트로 데이터를 추가로 뒤에 연결시키는 방법이다.
 충돌을 해결했지만, 링크드 리스트를 추가한 만큼 저장공간이 소모되며, 링크드 리스트를 탐색하는 동안엔 검색 속도가 해시 테이블에 비해 낮아진다.
 
-```python
-import hashlib
-
-hash_table = list([0 for _ in range(8)])
-
-def get_key(data):
-    hash_object = hashlib.sha256()
-    hash_object.update(data.encode())
-    hex_dig = hash_object.hexdigest()
-    return int(hex_dig, 16) #!6진수 문자열을 int형으로 변환
-
-def hash_function(key):
-    return key % 8
-
-def save_data(data, value):
-    key = get_key(data)
-    hash_address = hash_function(key)
-    if hash_table[hash_address] != 0: # 충돌 발생 시,
-        for index in range(len(hash_table[hash_address])): # 해당 해시 주소의 리스트 길이만큼 탐색
-            if hash_table[hash_address][index][0] == key: # 일치하는 키가 있다면
-                hash_table[hash_address][index][1] = value # 그곳의 데이터를 업데이트
-                return
-        hash_table[hash_address].append([key,value]) # 일치하는 데이터가 없다면, 새로 추가
-    else:
-        hash_table[hash_address] = [[key, value]] # 충돌 발생이 없을 경우, 데이터 추가
-
-def read_data(data):
-    key = get_key(data)
-    hash_address = hash_function(key)
-    if hash_table[hash_address] != 0:
-        for index in range(len(hash_table[hash_address])):
-            if hash_table[hash_address][index][0] == key:
-                return hash_table[hash_address][index][1]
-        return None
-    else:
-        return None
-```
 
 * __Linear Probing기법__  
 해시 테이블 저장공간 안에서 충돌 문제를 해결하는 기법이다. 충돌이 일어나면, 충돌이 일어난 주소의 다음 주소를 탐색하기 시작하여 맨 처음으로 나오는 빈 공간에 데이터를 저장한다.
 추가적인 저장 공간 소모 없이 충돌을 해결했지만, 특정 주소값에 충돌이 몰릴 경우 저장과 검색의 효율성이 떨어질 수 있다.
 
-```python
-import hashlib
 
-hash_table = list([0 for i in range(8)])
+해시 테이블의 원리와 구현, Chaining기법과 Linear Probing기법에 관한 상세한 내용은 [잔재미코딩](https://www.fun-coding.org/Chapter09-hashtable-live.html)을 참고하기 바란다. 해당 사이트에서는 상세한 설명과 코드가 포함되어 있어 해시 테이블을 이해하는데 큰 도움이 될 수 있다.
 
-def get_key(data):
-    hash_object = hashlib.sha256()
-    hash_object.update(data.encode())
-    hex_dig = hash_object.hexdigest()
-    return int(hex_dig, 16)
 
-def hash_function(key):
-    return key % 8
-
-def save_data(data, value):
-    index_key = get_key(data)
-    hash_address = hash_function(index_key)
-
-    if hash_table[hash_address] != 0: # 충돌이 발생하면,
-        for index in range(hash_address, len(hash_table)): # 충돌 지점 부터 탐색
-            if hash_table[index] == 0: # 빈 저장소를 발견하면,
-                hash_table[index] = [index_key, value]
-                return
-            elif hash_table[index][0] == index_key: #이미 key값 데이터가 있어 업데이트하는 경우
-                hash_table[index][1] = value
-                return
-    else: # 충돌이 발생하지 않는 경우,
-        hash_table[hash_address] = [index_key, value]
-
-def read_data(data):
-    index_key = get_key(data)
-    hash_address = hash_function(index_key)
-    
-    if hash_table[hash_address] != 0:
-        for index in range(hash_address, len(hash_table)):
-            if hash_table[index] == 0:
-                return None
-            elif hash_table[index][0] == index_key:
-                return hash_table[index][1]
-    else:
-        return None
-```
 
 ## 시간 복잡도
 ---
   - 해시 테이블에서 검색을 하는 경우 시간 복잡도는 어떻게 될까? 일반적인 경우는 Key값으로 데이터를 바로 조회할 수 있으므로 `O(1)`의 시간 복잡도를 갖는다.
   - 하지만, 충돌이 모두 발생하는 최악의 경우에는 데이터의 갯수만큼 조회해야하기 때문에 O(n)의 시간 복잡도를 갖는다.
  
+
+ ## Python 해시 테이블 활용
+---
+
+* __해시 테이블을 사용하는 경우__  
+해시 테이블의 장점을 떠올리면, 해시 테이블을 언제 사용하는게 좋을지 어느 정도 파악이 된다. 해시 테이블은 일반 리스트에 비해서 자료의 탐색이 시간 복잡도 O(1)로 매우 빠른 장점이 있다. 이 점으로 고려해 봤을 때, `데이터의 탐색이 빈번한 알고리즘`에서 활용도가 높다고 할 수 있다.  
+가끔 인덱스를 통해 리스트의 자료에 접근하다가 `인덱스 외의 값으로도 데이터를 저장하고 꺼내고 싶다`는 생각이 들 때가 있다. 예를들면, 상품의 정보를 각각 상품명으로 조회하고 싶은 경우를 생각해보자. 상품명을 index로 하고, 상품과 관련된 정보를 value로 하여 해시 테이블에 저장한다면, 상품명만으로도 해당 상품과 관련된 정보에 쉽게 접근할 수 있을 것이다.
+그 외에도 python에서는 `집계를 할 때` 해시 테이블을 활용할 수 있다. python의 collections 모듈의 Counter 클래스를 활용하면, 해당 리스트의 원소 개수를 해시 테이블 형태로 가공하여 return 받을 수 있다.
+
+__Counter 활용 예제 코드__
+
+```python
+import collections
+my_list = ['a', 'b', 'a', 'c']
+count_my_list = dict(collections.Counter(my_list)) # {'a':2, 'b':1, 'c':1}
+```
+
+* __Python 해시 테이블 활용 방법__  
+해시 테이블에 대해 알았다면, 이제 어떻게 해시 테이블을 사용하는지 알아야한다.  
+python에서 해시 테이블은 dict 클래스로 구현되어 있다.
+
+```python
+# 딕셔너리 생성
+my_dict = dict()
+my_dict = {}
+
+# 데이터 접근
+my_dict['a']
+my_dict.get('a',0) # get(key, x): dictionary에 key가 없는 경우 에러가 아닌, x를 return
+
+# keys, values
+my_dict.keys() # key만 return
+my_dict.values() # value만 return
+my_dict.items() # key-value 쌍으로 return
+
+```

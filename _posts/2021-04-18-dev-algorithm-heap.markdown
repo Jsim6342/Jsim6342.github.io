@@ -14,6 +14,7 @@ comments: false
 	- [힙(Heap)이란?](#힙heap이란) 
     - [힙 구현](#힙-구현)
     - [힙의 시간 복잡도](#힙의-시간-복잡도)
+    - [Python에서 힙 활용하기](#python에서-힙-활용하기)
 
 ## 힙(Heap)이란?
 ---
@@ -33,112 +34,61 @@ comments: false
 * __힙 동작__  
   - __삽입__  
   1) 힙은 완전 이진 트리의 구조 유지를 위해 삽입한 노드는 기본적으로 왼쪽 최하단부 노드 부터 순차적으로 채워지는 형태로 구현  
-  2) 만약 채워진 노드가 부모 노드 보다 크다면(최대힙인 경우), 부모 노드와 자식 노드를 바꿔주는 작업을 반복해서 해준다.
+  2) 만약 채워진 노드가 부모 노드 보다 크다면(최대힙인 경우), 부모 노드와 자식 노드를 바꿔주는 작업을 반복해서 해준다.  
+  ![이미지1](https://jsim6342.github.io/assets/img/anything/2021-04-18-dev-algorithm-heap-picture1.gif)
 
   - __삭제__  
   힙의 용도는 최대값, 최소값을 빠르게 구하기 위한 자료구조로 힙의 삭제는 보통 최상단 노드(root 노드)를 의미한다. (최상단 노드의 값을 삭제함과 동시에 반환한다.)  
   1) 힙의 최상단 노드를 삭제한다.  
   2) 삭제한 최상단 노드에 마지막에 위치한 노드를 넣는다.  
   3) 최소 or 최대힙의 구조가 구현되도록 자식 노드와 부모 노드를 비교하며 자리를 바꿔준다.  
+  ![이미지2](https://jsim6342.github.io/assets/img/anything/2021-04-18-dev-algorithm-heap-picture2.gif)
 
 * __배열을 활용한 힙 구현__  
-완전 이진 트리 구조를 배열을 통해 구현할 수 있다. 힙 구현의 편의를 위해 0번 인덱스에 None을 추가하고, root 노드 인덱스가 1인 배열을 만들어 최대힙을 구현해보자.
+완전 이진 트리 구조를 배열을 통해 구현할 수 있다. 힙 구현의 자세한 코드는 [잔재미코딩](https://www.fun-coding.org/Chapter11-heap.html)을 참고하기 바란다. 배열을 통해 힙을 구현할 때, 인덱스 번호의 배정은 다음과 같다.
 > 부모 노드 인덱스 번호  = 자식 노드 인덱스 번호 // 2  
 > 왼쪽 자식 노드 인덱스 번호 = 부모 노드 인덱스 번호 * 2  
 > 오른쪽 자식 노드 인덱스 번호  = 부모 노드 인덱스 번호 * 2 + 1  
-
-```python
-
-class Heap:
-def __init__(self, data):
-    self.heap_array = list()
-    self.heap_array.append(None)
-    self.heap_array.append(data)
-
-def move_down(self, popped_idx):
-    left_child_popped_idx = popped_idx * 2
-    right_child_popped_idx = popped_idx * 2 + 1
-    
-    # case1: 왼쪽 자식 노드도 없을 때(자식이 없을 때)
-    if left_child_popped_idx >= len(self.heap_array):
-        return False
-    # case2: 오른쪽 자식 노드만 없을 때(왼쪽 자식만 있을 때)
-    elif right_child_popped_idx >= len(self.heap_array):
-        if self.heap_array[popped_idx] < self.heap_array[left_child_popped_idx]: # 자식이 더 크면 True 반환
-            return True # swap 실행
-        else:
-            return False # swap 중단
-    # case3: 왼쪽, 오른쪽 자식 노드 모두 있을 때(자식이 2개 있을 때)
-    else:
-        if self.heap_array[left_child_popped_idx] > self.heap_array[right_child_popped_idx]: # 왼쪽 자식 > 오른쪽 자식일 때
-            if self.heap_array[popped_idx] < self.heap_array[left_child_popped_idx]: # 부모 노드 < 왼쪽 자식이면
-                return True 
-            else:
-                return False
-        else: # 왼쪽 자식 < 오른쪽 자식일 때
-            if self.heap_array[popped_idx] < self.heap_array[right_child_popped_idx]: # 부모 노드 < 오른쪽 자식이면
-                return True
-            else:
-                return False
-
-def pop(self):
-    if len(self.heap_array) <= 1:
-        return None
-    
-    returned_data = self.heap_array[1] # 가장 큰 값 리턴
-    self.heap_array[1] = self.heap_array[-1] # 마지막 데이터를 리턴한 자리에 채움
-    del self.heap_array[-1] # 마지막 데이터 삭제
-    popped_idx = 1
-    
-    while self.move_down(popped_idx): # move_down 메서드가 True면 swap을 반복적으로 진행
-        left_child_popped_idx = popped_idx * 2
-        right_child_popped_idx = popped_idx * 2 + 1
-
-        # case2: 오른쪽 자식 노드만 없을 때(왼쪽 자식만 있을 때)
-        if right_child_popped_idx >= len(self.heap_array):
-            if self.heap_array[popped_idx] < self.heap_array[left_child_popped_idx]: #왼쪽 자식과 부모를 바꾼다.
-                self.heap_array[popped_idx], self.heap_array[left_child_popped_idx] = self.heap_array[left_child_popped_idx], self.heap_array[popped_idx]
-                popped_idx = left_child_popped_idx
-        # case3: 왼쪽, 오른쪽 자식 노드 모두 있을 때(2개의 자식이 있을 때)
-        else:
-            if self.heap_array[left_child_popped_idx] > self.heap_array[right_child_popped_idx]: # 왼쪽 자식 > 오른쪽 자식일 때
-                if self.heap_array[popped_idx] < self.heap_array[left_child_popped_idx]: # 부모 노드 < 왼쪽 자식이 크다면, 부모와 왼쪽 자식 swap
-                    self.heap_array[popped_idx], self.heap_array[left_child_popped_idx] = self.heap_array[left_child_popped_idx], self.heap_array[popped_idx]
-                    popped_idx = left_child_popped_idx
-            else: # 왼쪽 자식 < 오른쪽 자식일 때
-                if self.heap_array[popped_idx] < self.heap_array[right_child_popped_idx]: # 부모 노드 < 오른쪽 자식이 크다면, 부모와 오른쪽 자식 swap
-                    self.heap_array[popped_idx], self.heap_array[right_child_popped_idx] = self.heap_array[right_child_popped_idx], self.heap_array[popped_idx]
-                    popped_idx = right_child_popped_idx
-    
-    return returned_data # 힙에서 가장 큰 값 리턴
-
-def move_up(self, inserted_idx):
-    if inserted_idx <= 1:
-        return False
-    parent_idx = inserted_idx // 2
-    if self.heap_array[inserted_idx] > self.heap_array[parent_idx]: # 자식 노드 > 부모 노드이면
-        return True # swap 실행
-    else:
-        return False # swap 중단
-
-def insert(self, data):
-    if len(self.heap_array) == 1:
-        self.heap_array.append(data)
-        return True
-    
-    self.heap_array.append(data) # data를 넣고,
-    inserted_idx = len(self.heap_array) - 1 # 해당 data의 인덱스 번호를 저장(부모 노드와 비교하여 큰 값을 root 노드로 올리기 위해)
-    
-    # 부모 노드와 넣은 data 인덱스를 부모 노드 보다 작을 때 까지 반복 비교하며 부모 노드와 swap 반복
-    while self.move_up(inserted_idx): 
-        parent_idx = inserted_idx // 2
-        self.heap_array[inserted_idx], self.heap_array[parent_idx] = self.heap_array[parent_idx], self.heap_array[inserted_idx]
-        inserted_idx = parent_idx
-    return True
-```
 
 
 ## 힙의 시간 복잡도
 ---
 힙에서 데이터 삽입 또는 삭제 시, 최악의 경우엔 root 노드 부터 leaf 노드 까지 비교를 해야한다. 이진 트리의 특성상 logN 번의 비교를 해야하므로, 힙의 시간 복잡도는`O(logN)`이라고 할 수 있다.  
 힙에 데이터를 넣고, 최대값과 최소값을 찾으면 O(logN) 이 걸리기 때문에, 일반 배열에 비해 매우 효율적이라고 할 수 있다.
+
+
+## Python에서 힙 활용하기
+---
+
+* __힙을 사용하는 경우__    
+힙의 가장 큰 특징은 최소값과 최대값을 언제든지 return 할 수 있다는 점이다.  
+이러한 점에서 데이터의 `삽입과 삭제가 빈번한 상황`에서 `최소값과 최대값을 알아야할 때 활용`할 수 있다고 볼 수 있다.  
+
+
+* __Python 힙 활용 방법__  
+Python에서 힙을 구현하는 방법은 heapq 모듈과 Queue 모듈의 PriorityQueue 클래스를 통해 구현할 수 있다. (둘 모두 최소힙으로 구현)  
+PriortyQueue는 클래스, heapq는 모듈이기 때문에 PriortyQueue를 사용하려면 객체 생성 후 메소드를 불러야 한다. 하지만, heapq의 경우는 객체 생성을 할 필요가 없으며, 모듈 내 함수를 호출하여 바로 heapq 형태로 정렬을 해주기 때문에 heapq가 더 빠르게 동작한다고 볼 수 있다.
+따라서, 보통 Python에서는 힙을 구현할 때, `heapq 모듈`을 사용한다.
+
+```python
+import heapq # 힙 모듈
+
+min_heap = [19, 30, 11, 7, 22]
+heapq.heapify(min_heap) # 리스트를 힙 정렬. O(nlogn)
+heapq.heappop(min_heap) # 맨 앞 최소(최대)값 pop. O(logn)
+heapq.heappush(min_heap, 1) # 힙 정렬을 유지하면서 원소 추가. O(logn)
+
+# 최대힙 만들기
+# 최소힙에 (-item, item) 형태로 원소를 추가해주자.
+data = [19, 30, 11, 7, 22]
+
+max_heap = []
+for item in data:
+  heapq.heappush(max_heap, (-item, item))
+
+```
+
+
+## 참고
+
+<https://ooeunz.tistory.com/7>

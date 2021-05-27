@@ -48,61 +48,70 @@ comments: false
 ## 연결 리스트 구현
 ---
 
-* __파이썬으로 연결 리스트 구현__  
-파이썬으로 간단하게 단방향 연결 리스트를 구현해보자.
+* __C언어로 연결 리스트 구현__  
+다음 코드는 C언어로 연결 리스트를 구현한 코드이다.  
+해당 코드는 CS50 수업을 참고하여 작성하였다.  
+파이썬 코드가 궁금하다면, [잔재미코딩](https://www.fun-coding.org/Chapter07-linkedlist-live.html)을 참고하기 바란다.
 
-```python
-class Node:
-    def __init__(self, data, next=None):
-        self.data = data
-        self.next = next
-class linked_list:
-    def __init__(self, data): # 연결 리스트 생성자
-        self.head = Node(data)
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
-    def add(self, data): # 연결 리스트 가장 뒤에 데이터 추가
-        if self.head == '':
-            self.head = Node(data)
-        else:
-            node = self.head
-            while node.next:
-                node = node.next
-            node.next = Node(data)
+//연결 리스트의 기본 단위가 되는 node 구조체를 정의합니다.
+typedef struct node
+{
+    int number; 
+    struct node *next;
+}
+node;
 
-    def select(self, data): # 특정 데이터 주소값 검색
-        node = self.head
+int main(void)
+{
 
-        while node:
-            if node.data == data:
-                return node
-            else:
-                node = node.next
+    node *list = NULL;
 
-    def delete(self, data): # 특정 데이터 삭제
-        if self.head == "":
-            print("해당 값을 가진 노드가 없습니다.")
-            return
-        
-        if self.head.data == data:
-            tmp = self.head
-            self.head = self.head.next
-            del tmp
-        else:
-            node = self.head
-            while node.next: #node가 아니라 node.next를 기준으로 확인
-                if node.next.data == data:
-                    tmp = node.next
-                    node.next = node.next.next
-                    del tmp
-                    return
-                else:
-                    node = node.next
+    node *n = malloc(sizeof(node));
+    if (n == NULL)
+    {
+        return 1;
+    }
 
-    def desc(self):
-        node = self.head
-        while node:
-            print(node.data)
-            node = node.next
+    n->number = 1;
+    n->next = NULL;
+    list = n;
+
+    n = malloc(sizeof(node));
+    if (n == NULL)
+    {
+        return 1;
+    }
+
+    n->number = 2;
+    n->next = NULL;
+    list->next = n;
+
+    n = malloc(sizeof(node));
+    if (n == NULL)
+    {
+        return 1;
+    }
+
+    n->number = 3;
+    n->next = NULL;
+
+
+    list->next->next = n;
+
+    for (node *tmp = list; tmp != NULL; tmp = tmp->next)
+    {
+        printf("%i\n", tmp->number);
+    }
+
+    while (list != NULL)
+    {
+        node *tmp = list->next;
+        free(list);
+        list = tmp;
+    }
+}
 ```
-  -`delete함수`에서 node가 아니라 node.next를 기준으로 확인하는 이유는 node를 기준으로 확인할 경우, 현재 비교하는 node가 삭제할 데이터일 경우 바로 전 주소값에서 현재 node 주소값을 건너뛰고 다음 주소값으로 node를 연결해야하는 작업에서 바로 전 node의 next를 불러올 수 없다.  
-  -`select함수`를 활용하여 연결 리스트 중간에 특정한 값의 주소값을 얻을 수 있다. 이를 활용하여 연결 리스트 중간에 값을 넣을 수도 있다.

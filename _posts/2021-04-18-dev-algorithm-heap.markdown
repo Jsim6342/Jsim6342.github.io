@@ -35,14 +35,14 @@ comments: false
   - __삽입__  
   1) 힙은 완전 이진 트리의 구조 유지를 위해 삽입한 노드는 기본적으로 왼쪽 최하단부 노드 부터 순차적으로 채워지는 형태로 구현  
   2) 만약 채워진 노드가 부모 노드 보다 크다면(최대힙인 경우), 부모 노드와 자식 노드를 바꿔주는 작업을 반복해서 해준다.  
-  ![이미지1](https://jsim6342.github.io/assets/img/anything/2021-04-18-dev-algorithm-heap-picture1.gif)
+  ![이미지1](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-18-dev-algorithm-heap-picture1.gif)
 
   - __삭제__  
   힙의 용도는 최대값, 최소값을 빠르게 구하기 위한 자료구조로 힙의 삭제는 보통 최상단 노드(root 노드)를 의미한다. (최상단 노드의 값을 삭제함과 동시에 반환한다.)  
   1) 힙의 최상단 노드를 삭제한다.  
   2) 삭제한 최상단 노드에 마지막에 위치한 노드를 넣는다.  
   3) 최소 or 최대힙의 구조가 구현되도록 자식 노드와 부모 노드를 비교하며 자리를 바꿔준다.  
-  ![이미지2](https://jsim6342.github.io/assets/img/anything/2021-04-18-dev-algorithm-heap-picture2.gif)
+  ![이미지2](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-18-dev-algorithm-heap-picture2.gif)
 
 * __배열을 활용한 힙 구현__  
 완전 이진 트리 구조를 배열을 통해 구현할 수 있다. 힙 구현의 자세한 코드는 [잔재미코딩](https://www.fun-coding.org/Chapter11-heap.html)을 참고하기 바란다. 배열을 통해 힙을 구현할 때, 인덱스 번호의 배정은 다음과 같다.

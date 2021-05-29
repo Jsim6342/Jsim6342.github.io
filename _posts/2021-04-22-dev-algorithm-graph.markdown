@@ -59,17 +59,15 @@ comments: false
 
 * __연결 그래프(Connected Graph) 와 비연결 그래프(Disconnected Graph)__  
 무방향 그래프에서 모든 노드에 대해 항상 경로가 존재하는 경우 연결 그래프, 특정 노드에 대해 경로가 존재하지 않는 경우는 비연결 그래프이다.  
-> 비연결 그래프 예
-> ![이미지3](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-22-dev-algorithm-graph-picture3.png)  
+![이미지3](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-22-dev-algorithm-graph-picture3.png)  
 
 * __사이클(Cycle)과 비순환 그래프(Acyclic Graph)__  
 단순 경로의 시작 노드와 종료 노드가 동일한 경우 사이클이라고 하며, 이 외의 경우를 사이클이 없는 그래프라고 한다.  
-> 비순환 그래프 예
-> ![이미지4](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-22-dev-algorithm-graph-picture4.png)  
+![이미지4](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-22-dev-algorithm-graph-picture4.png)  
 
 * __완전 그래프(Complete Graph)__  
 그래프의 모든 노드가 서로 연결되어 있는 그래프  
-![이미지5](https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-22-dev-algorithm-graph-picture5.png)  
+<img src="https://jsim6342.github.io/assets/img/dev/algorithm/2021-04-22-dev-algorithm-graph-picture5.png" width="400" height="300"> 
 
 
 ## 그래프와 트리의 차이

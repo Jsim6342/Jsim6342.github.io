@@ -39,13 +39,13 @@ comments: False
 * __DFS 구현__  
 DFS는 스택 또는 재귀함수를 활용하여 구현할 수 있다. 여기서는 스택을 활용하였다.  
 방문 예정 노드를 저장하는 리스트가 스택의 역할을 한다. 방문 예정 노드에는 부모 노드로 부터 연결된 자식 노드들이 반복적으로 담기게 되는데, 자식 노드들이 부모 노드들 보다 우선적으로 pop 되면서 반복적으로 방문하게 되므로 DFS가 구현된다.  
-자세한 DFS 구현 코드는 [잔재미코딩](https://www.fun-coding.org/Chapter18-dfs-live.html)을 참고하자.
+> 자세한 DFS 구현 코드는 [잔재미코딩](https://www.fun-coding.org/Chapter18-dfs-live.html)을 참고하자.
 
 
 * __BFS 구현__  
 BFS는 큐를 활용하여 구현할 수 있다.  
 DFS와 차이점은 방문 예정 노드 리스트를 큐로 동작시킨다는 점이다. 방문 예정 노드 리스트에는 차례대로 방문한 노드들과 연결된 노드들이 쌓이게 되고, 이 노드들이 차례대로 pop되면서 앞에 부모 노드 부터 pop되면서 부모 노드가 전부 pop되어야만 자식 노드가 pop될 수 있는 원리로 BFS가 구현된다. 
-자세한 DFS 구현 코드는 [잔재미코딩](https://www.fun-coding.org/Chapter18-bfs-live.html)을 참고하자. 
+> 자세한 DFS 구현 코드는 [잔재미코딩](https://www.fun-coding.org/Chapter18-bfs-live.html)을 참고하자. 
 
 
 

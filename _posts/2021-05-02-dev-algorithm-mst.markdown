@@ -56,65 +56,71 @@ comments: False
     + Union 작업을 거치며 생긴 트리 구조에 따라 parent가 부여되며, 처음엔 모두 루트 노드(자기 자신)로 초기화 되어있던 parent dictionary 값들이 Union으로 생긴 트리 구조에 맞게 변화되며, Find 함수가 정상적으로 작동하는 원리. (즉, 초기엔 Union이 발생되면서 트리 구조가 생기게 되고, 이를 통해 루트 노드 관계가 형성)  
 
 ![이미지2](https://jsim6342.github.io/assets/img/dev/algorithm/2021-05-02-dev-algorithm-mst-picture2.png)  
-![이미지3](https://jsim6342.github.io/assets/img/dev/algorithm/2021-05-02-dev-algorithm-mst-picture3.png)  
 
 * __크루스칼 알고리즘 구현__  
+위의 원리를 바탕으로 크루스칼 알고리즘을 구현할 수 있다. 구현 코드는 [잔재미코딩](https://www.fun-coding.org/Chapter20-kruskal-live.html)을 참고하기 바란다.
 
-```python  
-parent = dict() # 부모 노드 값 저장
-rank = dict() # 노드의 랭크 값 저장
-
-
-def find(node):
-    # path compression 기법
-    if parent[node] != node: # 현재 노드가 루트 노드가 아니라면, 
-        parent[node] = find(parent[node]) # 부모 노드를 계속 타고 올라가서 루트 노드를 부모 노드에 넣고,
-    return parent[node] # 넣은 부모 노드(루트 노드)를 반환한다.
-
-
-def union(node_v, node_u):
-    root1 = find(node_v)
-    root2 = find(node_u)
-    
-    # union-by-rank 기법
-    if rank[root1] > rank[root2]:
-        parent[root2] = root1
-    else:
-        parent[root1] = root2
-        if rank[root1] == rank[root2]:
-            rank[root2] += 1
-    
-    
-def make_set(node): # 초기화 함수
-    parent[node] = node
-    rank[node] = 0
-
-def kruskal(graph): # 사전을 인자로 받음
-    mst = list()
-    
-    # 1. 초기화
-    for node in graph['vertices']:
-        make_set(node)
-    
-    # 2. 간선 weight 기반 sorting
-    edges = graph['edges']
-    edges.sort() # 여러 가지 sort 방법을 알맞게 사용하면 된다.
-    
-    # 3. 간선 연결 (사이클 없는)
-    for edge in edges:
-        weight, node_v, node_u = edge
-        if find(node_v) != find(node_u): # find를 하여 루트 노드가 같지 않으면 union을 해준다.
-            union(node_v, node_u)
-            mst.append(edge)
-    
-    return mst # 간선에 최소 간선을 담아 반환
-```  
 
 * __크루스칼 알고리즘의 시간 복잡도__  
 모든 간선을 최소 비용을 기준으로 오름차순 정렬할 때, 퀵 정렬을 사용한다면, 간선 e를 기준으로 O(E logE)  
 두 정점의 최상위 정점을 확인하고, 서로 다를 경우 연결하는 Union & Find 자료구조는 union-by-rank 기법과 path compression 기법을 사용하여 시간 복잡도가 O(1)애 가깝다고 볼 수 있다.  
 즉, 크루스칼 알고리즘의 시간 복잡도는 `O(ElogE)`라 할 수 있다.  
 
+
+* __크루스칼 알고리즘 활용하기__  
+크루스칼 알고리즘은 최소한의 비용으로 신장 트리를 찾아야할 때 활용되는 알고리즘이다.  
+즉, 모든 도시를 최소 비용으로 연결하는 문제 등에서 활용할 수 있다.  
+크루스칼 알고리즘은 대표적인 소스코드를 통해 익혀두면 좋다. 해당 소스 코드는 다음과 같은 원리로 작성되었으며, '이것이 코딩 테스트다_나동빈' 서적을 참고하였다.
+> 1. 간선 데이터를 비용에 따라 오름차순으로 정렬한다.
+> 2. 간선을 하나씩 확인하며 현재의 간선이 사이클을 발생시키는지 확인한다.
+> -> 사이클이 발생하지 않는 경우, 최소 신장 트리에 포함시킨다.
+> -> 사이클이 발생하는 경우, 최소 신장 트리에 포함시키지 않는다.
+> 3. 모든 간선에 대해 2번 과정을 반복한다.
+
+```python
+# 특정 원소가 속한 집합 찿기
+def find_parent(parent, x):
+	if parent[x] != x: # 루트 노드가 아니라면, 루트 노드를 찾을 때까지 재귀적으로 호출
+		parent[x] = find_parent(parent, parent[x])
+	return parent[x]
+
+# 두 원소가 속한 집합 합치기
+def union_parent(parent, a, b):
+	a = find_parent(parent, a)
+	b - find_parent(parent, b)
+	if a < b:
+		parent[b] = a
+	else:
+		parent[a] = b
+
+# 노드 간선 정보 받기
+v, e = map(int, input().split())
+parent = [0] * (v + 1)
+
+# 모든 간선을 담을 리스트와 최종 비용을 담을 변수 선언
+edges = []
+result = 0
+
+# 부모 테이블 초기화
+for i in range(1, v + 1):
+	parent[i] = i
+
+# 모든 간선 정보 입력 받기
+for _ in range(e):
+	a, b, cost = map(int, input().split())
+	edges.append((cost, a, b))
+
+# 간선 비용순 정렬
+edges.sort()
+
+for edge in edges:
+	cost, a, b = edge
+	if find_parent(parent, a) != find_parent(parent, b):
+		union_parent(parent, a, b)
+		result += cost
+
+print(result)
+```
 
 ## 프림 알고리즘
 ---
@@ -129,45 +135,18 @@ def kruskal(graph): # 사전을 인자로 받음
 > 5. 추출한 간선은 간선 리스트에서 제거  
 > 6. 간선 리스트에 더 이상의 간선이 없을 때까지 4~5번을 반복한다.  
 
-![이미지4](https://jsim6342.github.io/assets/img/dev/algorithm/2021-05-02-dev-algorithm-mst-picture4.png)  
-![이미지5](https://jsim6342.github.io/assets/img/dev/algorithm/2021-05-02-dev-algorithm-mst-picture5.png)  
-![이미지6](https://jsim6342.github.io/assets/img/dev/algorithm/2021-05-02-dev-algorithm-mst-picture6.png)  
+![이미지3](https://jsim6342.github.io/assets/img/dev/algorithm/2021-05-02-dev-algorithm-mst-picture3.png)  
 
 
 * __프림 알고리즘 구현__  
-사이클이 생기지 않게하기 위해, 연결하려는 다음 노드가 이미 연결된 리스트 내에 존재하는지 확인하는 작업을 거쳤다.
-어떤 노드로 부터 파생된 인접 노드 사이의 최소 간선을 구하는 과정을 최소 힙으로 구현하였다.  
+위의 원리를 바탕으로 프림 알고리즘을 구현할 수 있다. 구현 코드는 [잔재미코딩](https://www.fun-coding.org/Chapter20-kruskal-live.html)을 참고하기 바란다.  
 
-```python  
-from collections import defaultdict
-from heapq import *
-
-def prim(start_node, edges):
-	mst = list() # 최소 신장 트리 간선을 저장, 출력을 위한 리스트 선언
-	adjacent_edges = defaultdict(list) # 간선 정보를 저장하기 위한 리스트
-	
-  # 모든 간선들을 돌며, 비용과 연결 노드들을 adjacent_edges에 저장
-	# dictionary 형태로 node가 주어지면 해당 노드와 연결된 간선들을 출력하기 위함
-	for weight, n1, n2 in edges: 
-		adjacent_edges[n1].appned((weight, n1, n2))
-		adjacent_edges[n2].appned((weight, n1, n2))
-
-	connected_nodes = set(start_node) # 시작 노드를 연결된 노드 리스트에 저장
-	candidate_edge_list = adjacent_edges[start_node] # 간선 후보 리스트에 시작 노드와 연결된 간선들 저장
-	heapify(candidate_edge_list) # 최소힙으로 우선순위 큐 형태로 변환
-
-	while candidate_edge_list:
-		weight, n1, n2 = heappop(candidate_edge_list)
-		if n2 not in connected_nodes: # 연결하려는 n2 노드가 연결된 노드 리스트에 없다면,(사이클X)
-			connected_nodes.add(n2) # 연결된 노드 리스트에 넣고,
-			mst.append((weight, n1, n2)) # 최소 신장 트리에 해당 간선 정보를 넣는다.
-
-			for edge in adjacent_edges[n2]: # 방금 연결한 n2 노드와 인접한 간선 정보를 돌며
-				if edge[2] not in connected_nodes: # 간선 목적지 노드가 연결된 노드 리스트에 없으면(사이클X)
-					heappush(candidate_edge_list, edge) # 간선 후보 리스트에 넣어 while문을 돌게 한다.
- 
-	return mst # 저장된 최소 신장 트리 반환
-```  
 
 * __프림 알고리즘 시간 복잡도__  
 최악의 경우, while문에서 모든 간선에 대해 반복하여 O(E), 최소힙 구조를 유지하는데 O(logE)가 걸리므로, `O(ElogE)`이라고 할 수 있다.  
+
+
+## 참고
+
+<https://gmlwjd9405.github.io/2018/08/29/algorithm-kruskal-mst.html>
+책: '이것이 코딩 테스트다'_나동빈

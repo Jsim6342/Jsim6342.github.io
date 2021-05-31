@@ -148,5 +148,5 @@ print(result)
 
 ## 참고
 
-<https://gmlwjd9405.github.io/2018/08/29/algorithm-kruskal-mst.html>
+<https://gmlwjd9405.github.io/2018/08/29/algorithm-kruskal-mst.html>  
 책: '이것이 코딩 테스트다'_나동빈

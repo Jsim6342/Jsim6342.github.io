@@ -4,7 +4,7 @@ title:  "[알고리즘] 최단 경로 알고리즘"
 subtitle:   "최단 경로 알고리즘 정리"
 categories: dev
 tags: algorithm shorttest path
-use_math: False
+use_math: true
 comments: False
 ---
 

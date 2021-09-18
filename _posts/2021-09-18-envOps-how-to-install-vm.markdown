@@ -2,8 +2,8 @@
 layout: post
 title:  "[서버구축] 가상머신에 우분투 다운로드하기"
 subtitle:   "가상머신에 우분투 다운로드"
-categories: envOps
-tags: envOps vm
+categories: envops
+tags: envops vm
 use_math: False
 comments: False
 ---

@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
 title: EnvOps
-slug: envOps
-category: envOps
+slug: envops
+category: envops
 menu: false
 order: 1
 ---

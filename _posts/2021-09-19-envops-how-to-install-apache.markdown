@@ -32,13 +32,14 @@ APM에 대해서 말하기 전에 서버에 대해서 알아야 한다. 흔히, 
 이번 포스팅에서는 앞서 구축한 우분투 vm에 APM을 소스코드로 구축해보고자 한다.   
 
 
+
+
 ## 의존성 패키지 설치
 ---
 
 
 * __필수 패키지 설치__  
-Apache를 소스설치 하면서 없으면 에러가 발생할 수 있는 필수 패키지들을 미리 설치하도록 한다.  
-[참고 사이트](https://inma06.tistory.com/62)
+Apache를 소스설치 하면서 없으면 에러가 발생할 수 있는 필수 패키지들을 미리 설치하도록 한다. [참고 사이트](https://inma06.tistory.com/62)
 ```
 $ sudo su
 $ apt-get install gcc
@@ -94,6 +95,8 @@ Apache 다운로드에 필요한 APR(Apache Portable Runtime), PCRE(Perl Compati
   ```
 
 
+
+
 ## 아파치 소스코드 설치
 ---
 
@@ -107,7 +110,8 @@ $ tar xvfz httpd-2.4.48.tar.gz
 
 
 configure 스크립트를 이용해서 아파치 소스 트리를 구성한다.  
-> tip. Bash 명령어를 한줄에 다 쓸 수 없을경우, 다음줄로 이어서 적을 때 첫 줄의 마지막에 \를 붙여주면 된다.
+> tip. Bash 명령어를 한줄에 다 쓸 수 없을경우, 다음줄로 이어서 적을 때 첫 줄의 마지막에 \를 붙여주면 된다.  
+
 ```
 $ cd httpd-2.4.46
 $ ./configure --prefix=/usr/local/apache2.4 \
@@ -155,6 +159,8 @@ $ cp /usr/local/apache2.4/bin/apachectl /etc/init.d/httpd
 ```
 $ update-rc.d httpd defaults
 ```
+
+
 
 
 ## 참고

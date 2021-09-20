@@ -23,10 +23,12 @@ comments: False
 가상 머신(영어: virtual machine, VM)은 컴퓨팅 환경을 소프트웨어로 구현한 것, 즉 컴퓨터 시스템을 에뮬레이션(가상현실화)하는 소프트웨어다. 가상머신상에서 운영 체제나 응용 프로그램을 설치 및 실행할 수 있다._위키백과  
 쉽게 말하자면, 또 하나의 컴퓨터라고 생각하면 된다.
 
+<br>
 
 * __가상 머신 다운로드__  
 [가상 머신 다운로드 페이지](https://www.virtualbox.org/wiki/Downloads "VM 다운로드 페이지 이동")에서 window host 환경에 다운로드할 예정이므로, `window host` 선택하여 다운로드 하면 된다.
 
+<br><br>
 
 ## 우분투 다운로드
 ---
@@ -42,6 +44,7 @@ desktop 버전은 개인용 서비스에 적합한 문서 작성 오피스, 음�
 server 버전은 서버 운영에 적합한 Apache, MySQL, PHP, 방화벽 등이 포함된다.  
 가장 큰 차이는 server 버전과는 다르게 `desktop에는 GUI 환경이 구현`되어 있다.  
 
+<br>
 
 * __vmware 에 ubuntu 18.04 설치__  
 1. 새로만들기 클릭  

@@ -53,7 +53,7 @@ $ apt-get install g++
 * __의존성 패키지 설치__  
 Apache 다운로드에 필요한 APR(Apache Portable Runtime), PCRE(Perl Compatible Regular Expressions)와 같은 의존성 패키지를 설치한다.  
 
-1. apr 설치  
+- apr 설치  
 apr과 apr-util을 설치해준다.  
 ```
 $ wget http://mirror.navercorp.com/apache//apr/apr-1.7.0.tar.gz #(apr주소)
@@ -85,7 +85,7 @@ make install: make를 통해 만들어진 설치 파일을 설치한다는 뜻
 
 <br>
 
-2. pcre 설치  
+- pcre 설치  
 apr과 같은 방식으로 pcre도 설치해준다.
 ```
 $ cd usr/local

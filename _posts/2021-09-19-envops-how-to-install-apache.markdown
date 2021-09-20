@@ -53,49 +53,49 @@ $ apt-get install g++
 * __의존성 패키지 설치__  
 Apache 다운로드에 필요한 APR(Apache Portable Runtime), PCRE(Perl Compatible Regular Expressions)와 같은 의존성 패키지를 설치한다.  
 
-  1. apr 설치  
-  apr과 apr-util을 설치해준다.  
-  ```
-  $ wget http://mirror.navercorp.com/apache//apr/apr-1.7.0.tar.gz #(apr주소)
-  $ wget http://mirror.navercorp.com/apache//apr/apr-util-1.6.1.tar.gz #(apr-util주소)
-  $ tar xvfz apr-1.7.0.tar.gz #이 소스로 apr 파일을 압축을 해제해준다.
-  $ tar xvfz apr-util-1.6.1.tar.gz #이 소스로 apr-util 파일 압축을 해제해준다.
-  ```
-  wget: web get의 약자로 웹에 있는 파일을 다운로드 받을 때 사용하는 명령어  
-  tar xvfz: tar.gz 형식의 압축된 파일을 압축해제 해주는 명령어  
-    
-  <br>
+1. apr 설치  
+apr과 apr-util을 설치해준다.  
+```
+$ wget http://mirror.navercorp.com/apache//apr/apr-1.7.0.tar.gz #(apr주소)
+$ wget http://mirror.navercorp.com/apache//apr/apr-util-1.6.1.tar.gz #(apr-util주소)
+$ tar xvfz apr-1.7.0.tar.gz #이 소스로 apr 파일을 압축을 해제해준다.
+$ tar xvfz apr-util-1.6.1.tar.gz #이 소스로 apr-util 파일 압축을 해제해준다.
+```
+wget: web get의 약자로 웹에 있는 파일을 다운로드 받을 때 사용하는 명령어  
+tar xvfz: tar.gz 형식의 압축된 파일을 압축해제 해주는 명령어  
+  
+<br>
 
-  압축해제한 apr 파일을 각각 컴파일 및 설치해준다.  
-  ```
-  $ cd usr/local/apr-1.7.0
-  $ ./configure --prefix=/usr/local/apr
-  $ make
-  $ make install
-  ```
-  ```
-  $ cd usr/local/apr-1.7.0
-  $ ./configure --prefix=/usr/local/apr
-  $ make
-  $ make install
-  ```
-  ./configure --prefix=/usr/local/apr: 어떤 파일을 /usr/local/apr 에 설치하겠다는 뜻  
-  make: 소스를 컴파일한다는 뜻  
-  make install: make를 통해 만들어진 설치 파일을 설치한다는 뜻  
+압축해제한 apr 파일을 각각 컴파일 및 설치해준다.  
+```
+$ cd usr/local/apr-1.7.0
+$ ./configure --prefix=/usr/local/apr
+$ make
+$ make install
+```
+```
+$ cd usr/local/apr-1.7.0
+$ ./configure --prefix=/usr/local/apr
+$ make
+$ make install
+```
+./configure --prefix=/usr/local/apr: 어떤 파일을 /usr/local/apr 에 설치하겠다는 뜻  
+make: 소스를 컴파일한다는 뜻  
+make install: make를 통해 만들어진 설치 파일을 설치한다는 뜻  
 
-  <br>
+<br>
 
-  2. pcre 설치  
-  apr과 같은 방식으로 pcre도 설치해준다.
-  ```
-  $ cd usr/local
-  $ wget ftp://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz
-  $ tar xvfz pcre-8.43.tar.gz
-  $ cd usr/local/pcre-8.43
-  $ ./configure --prefix=/usr/local/pcre
-  $ make
-  $ make install
-  ```
+2. pcre 설치  
+apr과 같은 방식으로 pcre도 설치해준다.
+```
+$ cd usr/local
+$ wget ftp://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz
+$ tar xvfz pcre-8.43.tar.gz
+$ cd usr/local/pcre-8.43
+$ ./configure --prefix=/usr/local/pcre
+$ make
+$ make install
+```
 
 <br><br>
 
